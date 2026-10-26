@@ -17,6 +17,15 @@ média empresa.
 - 📲 Mobile-first, visual vibrante do nicho (magenta, lilás, dourado), funciona
   offline e salva tudo no navegador (localStorage) — **zero backend, zero custo**
 
+## ✨ Demo ao vivo
+
+Veja o app que esta skill gera, funcionando no navegador (melhor no celular):
+
+**👉 [alexfiorotti-af.github.io/agenda-beleza-skill/demo/agenda-beleza.html](https://alexfiorotti-af.github.io/agenda-beleza-skill/demo/agenda-beleza.html)**
+
+Os dados são exemplos (`demo: true`) e ficam só no seu navegador — remova-os em
+Ajustes → "Limpar dados de exemplo". O código está em [`demo/agenda-beleza.html`](demo/agenda-beleza.html).
+
 ## Como usar
 
 ### No Claude (Code / claude.ai / plugin)
