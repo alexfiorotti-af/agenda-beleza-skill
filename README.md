@@ -42,13 +42,21 @@ recurso proprietário.
 ## Estrutura
 
 ```
-agenda-beleza/
-├── SKILL.md                      # instruções principais + processo
-└── references/
-    ├── design-system.md          # paleta, tipografia, componentes
-    ├── data-model.md             # schema, localStorage, regras de conflito, seeds
-    └── app-spec.md               # telas, fluxos, checklist de aceite
+agenda-beleza-skill/
+├── SKILL.md                      # skill do app: instruções principais + processo
+├── references/
+│   ├── design-system.md          # paleta, tipografia, componentes
+│   ├── data-model.md             # schema, localStorage, regras de conflito, seeds
+│   └── app-spec.md               # telas, fluxos, checklist de aceite
+├── demo/agenda-beleza.html       # o app gerado pela skill
+├── skills/landing-beleza/        # skill da página de venda (mockups + rastreamento)
+├── site/                         # página de venda pronta para a Vercel (+ /app e /api/capi)
+└── tracking/                     # container do GTM em JSON + plano de medição
 ```
+
+## Página de venda
+
+A pasta [`site/`](site/) tem a página de venda da Agenda Beleza: mockups reais das telas, texto na língua da profissional e rastreamento pronto (GTM, GA4, Pixel do Meta e API de Conversões). Como publicar: [`site/README.md`](site/README.md). A skill que gera páginas assim para outros produtos do nicho está em [`skills/landing-beleza/`](skills/landing-beleza/SKILL.md).
 
 ## Personalização
 

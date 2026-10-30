@@ -1,0 +1,106 @@
+{
+  "site": "Agenda Beleza (landing page)",
+  "gtm": "GTM-W97LQMJD",
+  "versao": "1.0 (30/10/2026)",
+  "como_ler": "Cada evento é enviado pelo site ao dataLayer. O GTM repassa ao GA4 (todos) e ao Pixel do Meta (só os marcados em meta_pixel). Os mesmos eventos do Meta vão também pela CAPI (/api/capi) com o mesmo event_id, para o Meta contar uma vez só.",
+  "consentimento": {
+    "padrao": "negado até a visitante aceitar o aviso de cookies",
+    "ga4": "Consent Mode v2: com recusa, o GA4 envia sinais sem cookie",
+    "meta": "Pixel e CAPI só disparam com consent_ads = granted (gatilho de bloqueio no GTM e checagem no site)",
+    "evento": "consent_update é enviado ao carregar a página e quando a visitante escolhe"
+  },
+  "parametros_comuns": {
+    "event_id": "UUID único por evento; usado na deduplicação Pixel + CAPI",
+    "consent_ads": "granted | denied"
+  },
+  "eventos": [
+    {
+      "evento": "consent_update",
+      "quando": "Ao carregar a página e ao clicar Aceitar ou Agora não",
+      "parametros": ["event_id", "consent_ads"],
+      "ga4": null,
+      "meta_pixel": "PageView (só com consentimento, uma vez por página)",
+      "capi": "PageView",
+      "conversao": false
+    },
+    {
+      "evento": "open_app",
+      "quando": "Clique em qualquer botão Começar grátis",
+      "parametros": ["event_id", "cta_id", "cta_location", "cta_text"],
+      "valores_cta_location": ["topo", "hero", "manifesto", "preco", "final"],
+      "ga4": "open_app (marcar como evento-chave)",
+      "meta_pixel": "StartTrial",
+      "capi": "StartTrial",
+      "conversao": true
+    },
+    {
+      "evento": "whatsapp_click",
+      "quando": "Clique em qualquer link de WhatsApp (dúvida ou versão com a marca)",
+      "parametros": ["event_id", "cta_id", "cta_location", "cta_text"],
+      "valores_cta_id": ["whatsapp", "whatsapp_marca"],
+      "valores_cta_location": ["hero", "duvidas", "preco", "final", "rodape"],
+      "ga4": "whatsapp_click (marcar como evento-chave)",
+      "meta_pixel": "Lead",
+      "capi": "Lead",
+      "conversao": true
+    },
+    {
+      "evento": "view_features",
+      "quando": "A seção Telas (mockups do app) aparece na tela pela primeira vez",
+      "parametros": ["event_id", "section_id"],
+      "ga4": "view_features",
+      "meta_pixel": "ViewContent",
+      "capi": "ViewContent",
+      "conversao": false
+    },
+    {
+      "evento": "cta_click",
+      "quando": "Clique em outros links marcados (ex.: GitHub no rodapé)",
+      "parametros": ["event_id", "cta_id", "cta_location", "cta_text"],
+      "ga4": "cta_click",
+      "meta_pixel": null,
+      "capi": null,
+      "conversao": false
+    },
+    {
+      "evento": "section_view",
+      "quando": "Cada seção aparece na tela pela primeira vez (35% visível)",
+      "parametros": ["event_id", "section_id"],
+      "valores_section_id": ["hero", "dores", "para-quem", "telas", "como-funciona", "manifesto", "comparativo", "preco", "duvidas", "final"],
+      "ga4": "section_view",
+      "meta_pixel": null,
+      "capi": null,
+      "conversao": false
+    },
+    {
+      "evento": "scroll_depth",
+      "quando": "A rolagem passa de 25, 50, 75 e 90% da página",
+      "parametros": ["event_id", "scroll_percent"],
+      "ga4": "scroll_depth",
+      "meta_pixel": null,
+      "capi": null,
+      "conversao": false
+    },
+    {
+      "evento": "mockup_interaction",
+      "quando": "Toque em uma das telas no mockup interativo",
+      "parametros": ["event_id", "mockup_screen"],
+      "valores_mockup_screen": ["hoje", "semana", "mes", "novo", "confirmar", "clientes"],
+      "ga4": "mockup_interaction",
+      "meta_pixel": null,
+      "capi": null,
+      "conversao": false
+    },
+    {
+      "evento": "faq_open",
+      "quando": "Uma pergunta da seção Dúvidas é aberta",
+      "parametros": ["event_id", "faq_question"],
+      "ga4": "faq_open",
+      "meta_pixel": null,
+      "capi": null,
+      "conversao": false
+    }
+  ],
+  "ga4_dimensoes_personalizadas_sugeridas": ["cta_id", "cta_location", "section_id", "mockup_screen", "faq_question"],
+  "ga4_metrica_personalizada_sugerida": ["scroll_percent"]
+}

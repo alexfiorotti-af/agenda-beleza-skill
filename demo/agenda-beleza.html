@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E91E8C">
 <title>Agenda Beleza</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
@@ -379,7 +384,7 @@ function viewAgenda(){
       const pts=n?`<span class="pts">${'<i></i>'.repeat(Math.min(n,3))}${n>3?`<span class="mais">+${n-3}</span>`:''}</span>`:'<span class="pts"></span>';
       cels+=`<button class="cel ${iso===todayISO()?'hoje':''} ${iso===st.moSel?'sel':''}" data-action="mo-dia" data-d="${iso}">${d}${pts}</button>`}
     corpo=`<div class="cal"><div class="wk-nav"><button class="seta" data-action="mo" data-n="-1" aria-label="Mês anterior">‹</button>
-      <b style="text-transform:capitalize">${fmt(prim,{month:'long',year:'numeric'})}</b>
+      <b>${(m=>m[0].toUpperCase()+m.slice(1))(fmt(prim,{month:'long',year:'numeric'}))}</b>
       <button class="seta" data-action="mo" data-n="1" aria-label="Próximo mês">›</button></div>
       <div class="cal-grade">${['seg','ter','qua','qui','sex','sáb','dom'].map(w=>`<span class="wd">${w}</span>`).join('')}${cels}</div>
       <button class="pill" data-action="mo-hoje" style="margin-top:10px">${t.hoje}</button></div>
@@ -466,11 +471,11 @@ function horasChips(f){
 function sheetAg(){
   const f=st.form;
   const q=(f.cliTexto||'').toLowerCase();
-  const sug=q&&!f.clientId?clients.filter(c=>c.name.toLowerCase().includes(q)).slice(0,4):[];
+  const sug=q&&!f.clientId&&!f.novaOk?clients.filter(c=>c.name.toLowerCase().includes(q)).slice(0,4):[];
   return `<h3>${f.id?t.editAg:t.novoAg}</h3>
   <label for="f-cli">${t.cliente}</label>
   <div class="busca"><input id="f-cli" data-action="f-cli" autocomplete="off" placeholder="Nome da cliente" value="${esc(f.cliTexto||'')}" ${f.id?'':'data-focus'}>
-    ${q&&!f.clientId?`<div class="sugestoes">
+    ${q&&!f.clientId&&!f.novaOk?`<div class="sugestoes">
       ${sug.map(c=>`<button data-action="f-pick-cli" data-id="${c.id}">${esc(c.name)}</button>`).join('')}
       <button class="nova" data-action="f-nova-cli">+ ${t.novaCli}: “${esc(f.cliTexto)}”</button></div>`:''}
   </div>
@@ -618,7 +623,7 @@ document.addEventListener('click',e=>{
     'fechar':()=>{st.sheet=null;render()},
     'fechar-ov':()=>{if(e.target===el){st.sheet=null;render()}},
     'f-pick-cli':()=>{st.form.clientId=id;st.form.cliTexto=cliDe(id).name;render()},
-    'f-nova-cli':()=>{st.form.clientId=null;render();toast('Cliente nova será criada ao salvar 💕')},
+    'f-nova-cli':()=>{st.form.clientId=null;st.form.novaOk=true;render();toast('Cliente nova será criada ao salvar 💕')},
     'f-srv':()=>{const s=services.find(x=>x.id===id);st.form.serviceId=s.id;st.form.durationMin=s.durationMin;st.form.price=s.price;st.form.conflito=null;st.form.forcar=false;render()},
     'f-hora':()=>{st.form.start=el.dataset.h;st.form.conflito=null;st.form.forcar=false;render()},
     'f-salvar':()=>salvarAg(),
@@ -657,7 +662,7 @@ document.addEventListener('input',e=>{
   if(el.dataset.set){settings[el.dataset.set]=el.dataset.set==='slotMinutes'?+el.value:el.value;persist();
     if(['businessName','ownerName','branch'].includes(el.dataset.set))renderHeader();return}
   const m={'busca':()=>{st.busca=el.value;renderMain();const b=$('#busca-cli');if(b){b.focus();b.setSelectionRange(b.value.length,b.value.length)}},
-    'f-cli':()=>{st.form.cliTexto=el.value;st.form.clientId=null;
+    'f-cli':()=>{st.form.cliTexto=el.value;st.form.clientId=null;st.form.novaOk=false;
       const r=el.closest('.busca');render();const n=$('#f-cli');if(n){n.focus();n.setSelectionRange(n.value.length,n.value.length)}},
     'f-data':()=>{st.form.date=el.value;st.form.conflito=null;st.form.forcar=false;render()},
     'f-hlivre':()=>{st.form.start=el.value;st.form.conflito=null;st.form.forcar=false},
