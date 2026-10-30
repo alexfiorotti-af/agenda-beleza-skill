@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agenda Beleza</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Agenda grátis para nail designers, manicures, cabeleireiras e salões. Veja o dia, a semana e o mês, evite horário duplicado e confirme cada cliente pelo WhatsApp.">
+<meta name="theme-color" content="#F7F2EF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agenda Beleza: agenda cheia, cabeça tranquila">
+<meta property="og:description" content="Agenda grátis para profissionais da beleza. Sem cadastro, sem mensalidade, direto no celular.">
+<!-- Troque pelo endereço final do site (precisa ser o endereço completo, com https://) -->
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='7' width='24' height='21' rx='6' fill='%23C8246A'/%3E%3Cpath d='M11 4.5v5M21 4.5v5' stroke='%232D1B2E' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M10.5 18l4 4 7-8' stroke='%23fff' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Instrument+Sans:wght@400..700&display=swap">
+
+<!-- ===== Rastreamento: configuração e consentimento (antes do GTM) ===== -->
+<script>
+window.AB_CONFIG = {
+  gtmId: 'GTM-W97LQMJD',
+  capiUrl: '/api/capi',          // função da Vercel (site/api/capi.js)
+  whatsapp: '5527996015367'
+};
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+(function(){
+  var c = null; try { c = localStorage.getItem('ab_consent'); } catch(e){}
+  var v = c === 'granted' ? 'granted' : 'denied';
+  gtag('consent', 'default', { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v, wait_for_update: 500 });
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',window.AB_CONFIG.gtmId);</script>
+<!-- End Google Tag Manager -->
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Agenda Beleza","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pt-BR","description":"Agenda para profissionais da beleza: dia, semana e mês, aviso de horário duplicado e confirmação pelo WhatsApp.","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"publisher":{"@type":"Organization","name":"AF Tecnologia e Marketing"}}
+</script>
+
+<style>
+/* Layout: página de venda em faixas cheias (porcelana / nude / ameixa), conteúdo em 1160px, empilha em 1 coluna no celular */
+:root{
+  --porcelana:#F7F2EF;  /* fundo */
+  --papel:#FFFFFF;      /* cartões */
+  --nude:#EFE7E2;       /* faixa de apoio */
+  --ameixa:#2D1B2E;     /* texto e faixas escuras */
+  --ameixa-suave:#6B5A66;
+  --esmalte:#C8246A;    /* acento único */
+  --esmalte-forte:#A81C58;
+  --rosa-claro:#F7DCE8;
+  --rosa-noite:#F59AC0; /* acento legível sobre ameixa */
+  --verniz:#8A620F;     /* destaque precioso: só o valor do dia no topo */
+  --linha:#E4D8D2;
+  --nevoa:#CDBFC8;      /* texto secundário sobre ameixa */
+  --display:'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --sans:'Instrument Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --r-card:24px; --r-ctrl:14px;
+  --sombra-flutua:0 18px 40px -12px rgba(45,27,46,.28), 0 4px 10px rgba(45,27,46,.08);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--porcelana);color:var(--ameixa);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--porcelana)}
+img{max-width:100%;display:block}
+a{color:inherit;text-underline-offset:3px}
+::selection{background:var(--rosa-claro);color:var(--ameixa)}
+:focus-visible{outline:2.5px solid var(--esmalte);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:600;line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.6rem,6.2vw,4.7rem)}
+h2{font-size:clamp(1.95rem,3.8vw,3rem)}
+h3{font-size:1.3rem;line-height:1.25;letter-spacing:-.005em}
+p{margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:24px;height:24px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.faixa{padding-block:clamp(72px,9vw,120px)}
+.faixa.nude{background:var(--nude)}
+.faixa.noite{background:var(--ameixa);color:var(--porcelana)}
+.lead{font-size:clamp(1.06rem,1.6vw,1.2rem);color:var(--ameixa-suave);max-width:58ch}
+.noite .lead{color:var(--nevoa)}
+.cabeca{display:grid;gap:18px;max-width:760px;margin-bottom:clamp(36px,5vw,56px)}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:var(--r-ctrl);
+  font:600 1rem/1 var(--sans);text-decoration:none;border:0;cursor:pointer;
+  transition:background-color .15s ease-out,color .15s ease-out,scale .15s ease-out}
+.btn:active{scale:.96}
+.btn .ico{width:20px;height:20px}
+.btn-prim{background:var(--esmalte);color:#fff}
+.btn-sec{background:var(--papel);color:var(--ameixa);box-shadow:inset 0 0 0 1.5px var(--linha)}
+.noite .btn-sec{background:transparent;color:var(--porcelana);box-shadow:inset 0 0 0 1.5px rgba(247,242,239,.35)}
+@media (hover:hover){
+  .btn-prim:hover{background:var(--esmalte-forte)}
+  .btn-sec:hover{background:var(--porcelana)}
+  .noite .btn-sec:hover{background:rgba(247,242,239,.08)}
+}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Topo */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--porcelana);border-bottom:1px solid transparent;transition:border-color .2s}
+.topo.rolou{border-bottom-color:var(--linha)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:600;font-size:1.3rem;letter-spacing:-.01em}
+.marca svg{width:32px;height:32px}
+.menu{display:flex;align-items:center;gap:28px}
+.menu a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ameixa-suave)}
+.menu a:hover{color:var(--ameixa)}
+.topo .btn{min-height:44px;padding:0 18px;font-size:.95rem}
+@media (max-width:860px){.menu{display:none}}
+
+/* Hero */
+.hero{padding-block:clamp(28px,5vw,64px) clamp(64px,8vw,104px)}
+.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-texto{display:grid;gap:26px;min-width:0}
+.hero-texto .lead{color:var(--ameixa-suave)}
+.garantias{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.95rem;color:var(--ameixa-suave);list-style:none;padding:0;margin:0}
+.garantias li{display:flex;align-items:center;gap:8px}
+.garantias .ico{width:18px;height:18px;color:var(--esmalte)}
+.hero-visual{position:relative;min-width:0;padding:0 0 40px 0}
+.arco{border-radius:999px 999px var(--r-card) var(--r-card);overflow:hidden;background:var(--nude);aspect-ratio:3/4;width:min(100%,460px);margin-left:auto}
+.arco img{width:100%;height:100%;object-fit:cover}
+.hero .phone{position:absolute;left:0;bottom:0;width:clamp(170px,40%,236px)}
+.aviso{position:absolute;background:var(--papel);border-radius:18px;box-shadow:var(--sombra-flutua);padding:14px 16px;display:flex;gap:12px;align-items:center;font-size:.9rem;line-height:1.35}
+.aviso b{display:block;font-weight:600;color:var(--ameixa)}
+.aviso span{color:var(--ameixa-suave)}
+.aviso .selo{width:36px;height:36px;border-radius:12px;background:#DDF2E7;color:#1F7A4D;display:grid;place-items:center;flex:0 0 auto}
+.aviso .selo .ico{width:20px;height:20px;stroke-width:2.2}
+.aviso-1{top:9%;left:4%}
+.aviso-2{right:-2%;bottom:16%;display:block;padding:14px 18px}
+.aviso-2 span{display:block;font-size:.82rem}
+.aviso-2 strong{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:1.65rem;font-weight:600;color:var(--verniz);font-variant-numeric:tabular-nums;line-height:1.1}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-visual{max-width:520px;margin:0 auto;width:100%}
+  .aviso-2{right:0}
+}
+@media (max-width:480px){
+  .aviso{padding:11px 13px;font-size:.82rem}
+  .aviso .selo{width:30px;height:30px}
+  .aviso-1{top:6%;left:0}
+  .aviso-2 strong{font-size:1.35rem}
+}
+
+/* Celular (mockup) */
+.phone{background:#1B1120;border-radius:44px;padding:9px;box-shadow:var(--sombra-flutua);position:relative}
+.phone::before{content:"";position:absolute;top:17px;left:50%;translate:-50% 0;width:30%;height:20px;border-radius:999px;background:#1B1120;z-index:2}
+.phone img{border-radius:36px;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top;background:#FFF7FB}
+
+/* Dores */
+.dores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dor{background:var(--papel);border-radius:var(--r-card);padding:28px;display:grid;gap:14px;align-content:start}
+.dor .ico{color:var(--esmalte);width:28px;height:28px}
+.dor h3{font-size:1.25rem}
+.dor p{color:var(--ameixa-suave)}
+.dor p b{color:var(--ameixa);font-weight:600}
+@media (max-width:720px){.dores{grid-template-columns:1fr}.dor{padding:24px}}
+
+/* Para quem */
+.quem{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.quem-fotos{position:relative;padding-bottom:56px;min-width:0}
+.quem-fotos .grande{border-radius:var(--r-card);overflow:hidden;aspect-ratio:7/7.3;width:86%}
+.quem-fotos .grande img{width:100%;height:100%;object-fit:cover}
+.quem-fotos .peq{position:absolute;right:0;bottom:0;width:44%;border-radius:20px;overflow:hidden;border:6px solid var(--porcelana);aspect-ratio:1}
+.quem-fotos .peq img{width:100%;height:100%;object-fit:cover}
+.quem-texto{display:grid;gap:22px;min-width:0}
+.oficios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;padding:0;margin:0}
+.oficios li{background:var(--papel);border-radius:var(--r-ctrl);padding:14px 16px;display:flex;align-items:center;gap:12px;font-weight:500}
+.oficios .ico{color:var(--esmalte)}
+.nota{font-size:.95rem;color:var(--ameixa-suave)}
+@media (max-width:860px){.quem{grid-template-columns:1fr}.quem-fotos{max-width:480px}}
+@media (max-width:420px){.oficios{grid-template-columns:1fr}}
+
+/* Telas (mockup interativo) */
+.telas{display:grid;grid-template-columns:1fr minmax(240px,320px);gap:clamp(32px,6vw,88px);align-items:center}
+.seletor{display:grid;gap:8px}
+.opcao{all:unset;box-sizing:border-box;display:grid;gap:6px;padding:18px 20px;border-radius:18px;cursor:pointer;transition:background-color .15s ease-out}
+.opcao .t{font-weight:600;font-size:1.08rem;display:flex;align-items:center;gap:12px}
+.opcao .t .ico{color:var(--ameixa-suave)}
+.opcao .d{display:none;color:var(--ameixa-suave);padding-left:36px}
+.opcao .d b{color:var(--ameixa);font-weight:600}
+.opcao[aria-selected="true"]{background:var(--papel)}
+.opcao[aria-selected="true"] .t .ico{color:var(--esmalte)}
+.opcao[aria-selected="true"] .d{display:grid;gap:6px}
+@media (hover:hover){.opcao:hover:not([aria-selected="true"]){background:rgba(255,255,255,.5)}}
+.opcao:focus-visible{outline:2.5px solid var(--esmalte);outline-offset:2px}
+.telas .phone{width:100%;max-width:320px;margin:0 auto}
+.telas .phone img{transition:opacity .2s ease-out}
+.legenda-celular{display:none}
+@media (max-width:860px){
+  .telas{grid-template-columns:1fr}
+  .telas .phone{order:-1;max-width:270px}
+  .seletor{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;gap:8px;padding:2px 2px 8px;scrollbar-width:none;overscroll-behavior-x:contain;margin:0 -4px}
+  .seletor::-webkit-scrollbar{display:none}
+  .opcao{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.55)}
+  .opcao .t{font-size:.95rem;gap:8px}
+  .opcao .t .ico{width:18px;height:18px}
+  .opcao .d,.opcao[aria-selected="true"] .d{display:none}
+  .legenda-celular{display:grid;gap:6px;background:var(--papel);border-radius:20px;padding:20px;color:var(--ameixa-suave)}
+  .legenda-celular b{color:var(--ameixa);font-weight:600}
+  .legenda-celular h3{color:var(--ameixa);font-size:1.15rem}
+}
+
+/* Como funciona */
+.passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;position:relative;list-style:none;padding:0;margin:0}
+.passos::before{content:"";position:absolute;top:27px;left:28px;right:calc(33.33% - 28px);height:2px;background:var(--linha)}
+.passo{display:grid;gap:12px;padding-right:32px;position:relative}
+.passo .marco{width:56px;height:56px;border-radius:18px;background:var(--papel);display:grid;place-items:center;color:var(--esmalte);position:relative}
+.passo p{color:var(--ameixa-suave)}
+@media (max-width:820px){
+  .passos{grid-template-columns:1fr;gap:28px}
+  .passos::before{top:28px;bottom:28px;left:27px;right:auto;width:2px;height:auto}
+  .passo{grid-template-columns:56px 1fr;column-gap:18px;padding-right:0}
+  .passo .marco{grid-row:span 2}
+}
+
+/* Manifesto (noite) */
+.manifesto{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,88px);align-items:center}
+.manifesto .arco{width:min(100%,400px);margin:0;aspect-ratio:2/3}
+.manifesto-texto{display:grid;gap:26px;min-width:0}
+.fatos{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.fatos li{display:flex;gap:14px;align-items:flex-start;color:var(--nevoa)}
+.fatos li b{color:var(--porcelana);font-weight:600}
+.fatos .ico{color:var(--rosa-noite);margin-top:2px}
+@media (max-width:860px){.manifesto{grid-template-columns:1fr}.manifesto .arco{max-width:340px;width:80%}}
+
+/* Comparativo */
+.compara{background:var(--papel);border-radius:var(--r-card);overflow:hidden}
+.linha-c{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:16px;padding:18px 28px;border-top:1px solid var(--linha);align-items:center}
+.linha-c:first-child{border-top:0;font-size:.85rem;font-weight:600;color:var(--ameixa-suave);padding-block:16px;background:var(--porcelana)}
+.linha-c .item{font-weight:600}
+.linha-c .velho{color:var(--ameixa-suave);display:flex;gap:10px;align-items:flex-start}
+.linha-c .novo{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.linha-c .velho .ico{color:#B9A7B2;width:20px;height:20px;margin-top:3px}
+.linha-c .novo .ico{color:var(--esmalte);width:20px;height:20px;margin-top:3px;stroke-width:2.2}
+@media (max-width:720px){
+  .linha-c{grid-template-columns:1fr;gap:6px;padding:18px 20px}
+  .linha-c:first-child{display:none}
+}
+
+/* Preço */
+.planos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+.plano{border-radius:var(--r-card);padding:clamp(28px,4vw,40px);display:grid;gap:22px;align-content:start;background:var(--papel)}
+.plano.escuro{background:var(--ameixa);color:var(--porcelana)}
+.plano .nome{font-weight:600;font-size:1.05rem}
+.plano .valor{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:600;font-size:clamp(2.6rem,5vw,3.4rem);line-height:1;letter-spacing:-.02em}
+.plano .valor small{font-family:var(--sans);font-size:1rem;font-weight:500;color:var(--ameixa-suave);letter-spacing:0;margin-left:6px}
+.plano.escuro .valor{font-size:clamp(2rem,4vw,2.5rem)}
+.plano.escuro .valor small{color:var(--nevoa)}
+.plano ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.plano li{display:flex;gap:12px;align-items:flex-start}
+.plano li .ico{color:var(--esmalte);width:20px;height:20px;margin-top:3px;stroke-width:2.2}
+.plano.escuro li{color:var(--nevoa)}
+.plano.escuro li .ico{color:var(--rosa-noite)}
+.plano .btn{justify-self:start}
+@media (max-width:760px){.planos{grid-template-columns:1fr}.plano .btn{justify-self:stretch}}
+
+/* Dúvidas */
+.duvidas{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px)}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--papel);border-radius:18px}
+.faq summary{list-style:none;cursor:pointer;padding:20px 22px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ico{transition:rotate .2s ease-out;color:var(--ameixa-suave)}
+.faq details[open] summary .ico{rotate:45deg}
+.faq .resp{padding:0 22px 22px;color:var(--ameixa-suave);display:grid;gap:10px}
+@media (max-width:860px){.duvidas{grid-template-columns:1fr}}
+
+/* Chamada final */
+.final{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.final-texto{display:grid;gap:24px;min-width:0}
+.leque{position:relative;height:clamp(380px,42vw,520px);min-width:0}
+.leque .phone{position:absolute;width:clamp(150px,34%,210px);top:50%;left:50%}
+.leque .p1{translate:-108% -46%;rotate:-8deg}
+.leque .p3{translate:8% -46%;rotate:8deg}
+.leque .p2{translate:-50% -52%;z-index:2}
+@media (max-width:860px){.final{grid-template-columns:1fr}.leque{order:-1;height:clamp(320px,90vw,440px)}}
+
+/* Rodapé */
+.rodape{background:var(--ameixa);color:var(--nevoa);padding-block:56px calc(40px + env(safe-area-inset-bottom,0px));font-size:.95rem}
+.rodape .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+.rodape .marca{color:var(--porcelana)}
+.rodape h4{margin:0 0 10px;color:var(--porcelana);font-size:.95rem;font-weight:600}
+.rodape a{color:var(--porcelana)}
+.rodape ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.rodape .linkbtn{all:unset;cursor:pointer;color:var(--porcelana);text-decoration:underline;text-underline-offset:3px}
+.rodape .baixo{grid-column:1/-1;border-top:1px solid rgba(247,242,239,.14);padding-top:22px;font-size:.85rem}
+.copiavel{user-select:all}
+@media (max-width:760px){.rodape .wrap{grid-template-columns:1fr}}
+
+/* Aviso de cookies */
+.cookies{position:fixed;z-index:70;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  max-width:560px;margin:0 auto;background:var(--papel);border-radius:20px;box-shadow:var(--sombra-flutua);padding:20px;display:grid;gap:14px;font-size:.95rem;color:var(--ameixa-suave)}
+.cookies b{color:var(--ameixa)}
+.cookies .acoes{gap:8px}
+.cookies .btn{min-height:46px;padding:0 20px;font-size:.95rem}
+
+/* Entrada suave (visível em repouso; anima só quando o JS marca) */
+.js .sobe{opacity:0;translate:0 12px;transition:opacity .3s ease-out,translate .3s ease-out}
+.js .sobe.vista{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .sobe{opacity:1;translate:none;transition:none}
+  .btn,.opcao,.telas .phone img,.faq summary .ico{transition:none}
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W97LQMJD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-cal-plus" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18M12 13v5M9.5 15.5h5"/></symbol>
+    <symbol id="i-semana" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18M7 14h2M11 14h2M15 14h2M7 17.5h2M11 17.5h2"/></symbol>
+    <symbol id="i-hoje" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-conflito" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 1.5M4.5 3.5 2.5 5.5M19.5 3.5l2 2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.6-4.3A8.5 8.5 0 1 1 20.5 11.5z"/><path d="M9 8.6c-.3 2.9 2.4 5.9 5.6 5.9l.9-1.5-1.8-.9-.9.8c-1-.4-1.8-1.2-2.2-2.2l.8-.9-.9-1.8z"/></symbol>
+    <symbol id="i-carteira" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10.5h18M16 15h2"/></symbol>
+    <symbol id="i-caderno" viewBox="0 0 24 24"><path d="M6 3.5h10.5a2.5 2.5 0 0 1 2.5 2.5v14.5H8.5A2.5 2.5 0 0 1 6 18z"/><path d="M6 18a2.5 2.5 0 0 1 2.5-2.5H19M3.5 7.5H6M3.5 11.5H6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7 7 17"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-unha" viewBox="0 0 24 24"><path d="M12 3c3 0 5 3.6 5 8.6S15 21 12 21s-5-4.4-5-9.4S9 3 12 3z"/><path d="M9.6 17.4c1.5 1.1 3.3 1.1 4.8 0"/></symbol>
+    <symbol id="i-gota" viewBox="0 0 24 24"><path d="M12 3.5s6 6.4 6 10.8a6 6 0 0 1-12 0c0-4.4 6-10.8 6-10.8z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2.5"/></symbol>
+    <symbol id="i-tesoura" viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.8"/><circle cx="6" cy="17" r="2.8"/><path d="M8.4 8.6 20 18M8.4 15.4 20 6"/></symbol>
+    <symbol id="i-olho" viewBox="0 0 24 24"><path d="M2.5 13s3.5-5.5 9.5-5.5 9.5 5.5 9.5 5.5-3.5 5.5-9.5 5.5S2.5 13 2.5 13z"/><circle cx="12" cy="13" r="2.4"/><path d="M6.5 7 5.3 5.3M12 5.5V3.5M17.5 7l1.2-1.7"/></symbol>
+    <symbol id="i-sobrancelha" viewBox="0 0 24 24"><path d="M3 14c3.4-4.3 10-5.8 18-2.6"/><path d="M6.5 18.5c3-1.4 7-1.4 10.5 0"/></symbol>
+    <symbol id="i-folha" viewBox="0 0 24 24"><path d="M5 19C5 11 11 5 20 5c0 9-6 15-14 15"/><path d="M5 19l7.5-7.5"/></symbol>
+    <symbol id="i-salao" viewBox="0 0 24 24"><path d="M4.5 10.5V20h15v-9.5M3 10.5 5 4.5h14l2 6M9 20v-5h6v5"/></symbol>
+    <symbol id="i-celular" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.5 18.5h3"/></symbol>
+    <symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11"/><circle cx="4.8" cy="6.5" r=".9"/><circle cx="4.8" cy="12" r=".9"/><circle cx="4.8" cy="17.5" r=".9"/></symbol>
+    <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.6 14.6c2.6-.3 4.5 1.1 4.9 4.2"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7 3v5.2c0 4.8-3 8.3-7 9.8-4-1.5-7-5-7-9.8V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-marca" viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="21" rx="6" fill="#C8246A" stroke="none"/><path d="M11 4.5v5M21 4.5v5" stroke="#2D1B2E" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M10.5 18l4 4 7-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-marca-noite" viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="21" rx="6" fill="#C8246A" stroke="none"/><path d="M11 4.5v5M21 4.5v5" stroke="#F7F2EF" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M10.5 18l4 4 7-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="topo" id="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Agenda Beleza, início"><svg aria-hidden="true"><use href="#i-marca"/></svg>Agenda Beleza</a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#telas">Telas</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#preco">Preço</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-prim" href="app/" target="_blank" rel="noopener" data-cta="open_app" data-loc="topo">Começar grátis</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+<section class="hero" data-section="hero" aria-labelledby="h-hero">
+  <div class="wrap">
+    <div class="hero-texto">
+      <h1 id="h-hero">Agenda cheia, cabeça tranquila.</h1>
+      <p class="lead">A Agenda Beleza mostra quem vem hoje, amanhã e no mês, avisa quando dois horários batem e deixa a mensagem de confirmação pronta no WhatsApp. Feita para nail designers, manicures, cabeleireiras e salões.</p>
+      <div class="acoes">
+        <a class="btn btn-prim" href="app/" target="_blank" rel="noopener" data-cta="open_app" data-loc="hero">Começar grátis <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        <a class="btn btn-sec" href="https://wa.me/5527996015367?text=Oi!%20Vim%20pelo%20site%20da%20Agenda%20Beleza%20e%20quero%20tirar%20uma%20d%C3%BAvida." target="_blank" rel="noopener" data-cta="whatsapp" data-loc="hero"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Tirar dúvida no WhatsApp</a>
+      </div>
+      <ul class="garantias">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Grátis</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sem cadastro</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Abre no navegador do celular</li>
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <div class="arco"><img src="img/profissional.webp" width="900" height="1200" alt="Cabeleireira de avental sorrindo no salão, com uma cliente ao fundo" fetchpriority="high"></div>
+      <div class="phone"><img src="img/tela-hoje.webp" width="780" height="1688" alt="Tela Hoje da Agenda Beleza com cinco atendimentos em ordem de horário"></div>
+      <div class="aviso aviso-1" aria-hidden="true"><span class="selo"><svg class="ico"><use href="#i-check"/></svg></span><div><b>Camila confirmou</b><span>Hoje, 11:00 · Sobrancelha</span></div></div>
+      <div class="aviso aviso-2" aria-hidden="true"><span>Previsto para hoje</span><strong>R$ 335</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- DORES -->
+<section class="faixa nude" data-section="dores" aria-labelledby="h-dores">
+  <div class="wrap">
+    <div class="cabeca sobe">
+      <h2 id="h-dores">Se a sua agenda hoje é assim, você não está sozinha.</h2>
+      <p class="lead">Quem atende com hora marcada conhece esses quatro problemas. Cada um tem uma resposta direta no app.</p>
+    </div>
+    <div class="dores">
+      <article class="dor sobe">
+        <svg class="ico" aria-hidden="true"><use href="#i-caderno"/></svg>
+        <h3>Caderninho, papel e print de conversa.</h3>
+        <p><b>Na Agenda Beleza:</b> o dia, a semana e o mês ficam num lugar só, no celular que já está na sua mão.</p>
+      </article>
+      <article class="dor sobe">
+        <svg class="ico" aria-hidden="true"><use href="#i-conflito"/></svg>
+        <h3>Duas clientes marcadas no mesmo horário.</h3>
+        <p><b>Na Agenda Beleza:</b> o app avisa na hora de marcar. Se for encaixe, você decide salvar mesmo assim.</p>
+      </article>
+      <article class="dor sobe">
+        <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
+        <h3>Cliente que esquece e deixa a cadeira vazia.</h3>
+        <p><b>Na Agenda Beleza:</b> um toque abre o WhatsApp dela com a confirmação pronta, com dia, hora e serviço.</p>
+      </article>
+      <article class="dor sobe">
+        <svg class="ico" aria-hidden="true"><use href="#i-carteira"/></svg>
+        <h3>Fim do dia sem saber quanto entrou.</h3>
+        <p><b>Na Agenda Beleza:</b> o topo da agenda mostra quantos atendimentos você tem e o valor previsto do dia.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="faixa" data-section="para-quem" aria-labelledby="h-quem">
+  <div class="wrap quem">
+    <div class="quem-fotos sobe">
+      <div class="grande"><img src="img/cliente.webp" width="700" height="733" alt="Cliente de bobes lendo revista e tomando café enquanto espera" loading="lazy"></div>
+      <div class="peq"><img src="img/ferramentas.webp" width="480" height="480" alt="Bolso de avental com presilhas de cabelo" loading="lazy"></div>
+    </div>
+    <div class="quem-texto sobe">
+      <h2 id="h-quem">Feita para quem trabalha com hora marcada.</h2>
+      <p class="lead">Do studio de uma pessoa só ao salão pequeno, a agenda fala a língua do seu dia: horário, cliente, serviço, encaixe e confirmação.</p>
+      <ul class="oficios">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-unha"/></svg>Nail designer</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-gota"/></svg>Manicure e pedicure</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg>Cabeleireira</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-olho"/></svg>Lash designer</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-sobrancelha"/></svg>Designer de sobrancelhas</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-folha"/></svg>Esteticista</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-salao"/></svg>Salão pequeno</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-pessoas"/></svg>Autônoma em casa</li>
+      </ul>
+      <p class="nota">O app já vem com serviços de exemplo. Você troca os nomes, os preços e o tempo de cada um em poucos minutos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TELAS -->
+<section class="faixa nude" id="telas" data-section="telas" aria-labelledby="h-telas">
+  <div class="wrap">
+    <div class="cabeca sobe">
+      <h2 id="h-telas">Veja como fica no seu celular.</h2>
+      <p class="lead">Toque em cada tela para ver o que ela faz e por que ela ajuda no dia a dia.</p>
+    </div>
+    <div class="telas">
+      <div class="seletor" role="tablist" aria-label="Telas do app">
+        <button class="opcao" role="tab" aria-selected="true" aria-controls="tela-img" data-tela="hoje"><span class="t"><svg class="ico" aria-hidden="true"><use href="#i-hoje"/></svg>Hoje</span><span class="d"><span>Seu dia em ordem de horário, com o nome da cliente, o serviço e o valor.</span><span><b>Por que ajuda:</b> entre um atendimento e outro, você bate o olho e já sabe quem é a próxima.</span></span></button>
+        <button class="opcao" role="tab" aria-selected="false" aria-controls="tela-img" data-tela="semana"><span class="t"><svg class="ico" aria-hidden="true"><use href="#i-semana"/></svg>Semana</span><span class="d"><span>Os sete dias, de segunda a domingo, com os horários de cada um.</span><span><b>Por que ajuda:</b> mostra onde ainda cabe um encaixe e qual dia está mais cheio.</span></span></button>
+        <button class="opcao" role="tab" aria-selected="false" aria-controls="tela-img" data-tela="mes"><span class="t"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Mês</span><span class="d"><span>O calendário com um pontinho em cada dia que tem cliente.</span><span><b>Por que ajuda:</b> facilita marcar a manutenção de quem volta a cada 15 ou 21 dias e planejar a sua folga.</span></span></button>
+        <button class="opcao" role="tab" aria-selected="false" aria-controls="tela-img" data-tela="novo"><span class="t"><svg class="ico" aria-hidden="true"><use href="#i-cal-plus"/></svg>Marcar horário</span><span class="d"><span>Escolha a cliente, o serviço e um horário livre. Os ocupados aparecem apagados.</span><span><b>Por que ajuda:</b> não tem como marcar duas no mesmo horário sem perceber. Se for encaixe, o app pergunta antes.</span></span></button>
+        <button class="opcao" role="tab" aria-selected="false" aria-controls="tela-img" data-tela="confirmar"><span class="t"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Confirmar no WhatsApp</span><span class="d"><span>Um toque abre o WhatsApp da cliente com a mensagem pronta: dia, hora e serviço.</span><span><b>Por que ajuda:</b> cliente que confirma tende a aparecer. Você só aperta enviar.</span></span></button>
+        <button class="opcao" role="tab" aria-selected="false" aria-controls="tela-img" data-tela="clientes"><span class="t"><svg class="ico" aria-hidden="true"><use href="#i-pessoas"/></svg>Clientes</span><span class="d"><span>Telefone, observações e o histórico de cada cliente.</span><span><b>Por que ajuda:</b> anote que ela tem alergia a acrílico ou prefere tom nude, e a informação aparece quando você precisa.</span></span></button>
+      </div>
+      <div class="phone" id="tela-img" role="tabpanel"><img src="img/tela-hoje.webp" width="780" height="1688" alt="Tela Hoje da Agenda Beleza" loading="lazy"></div>
+      <div class="legenda-celular" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="faixa" id="como-funciona" data-section="como-funciona" aria-labelledby="h-como">
+  <div class="wrap">
+    <div class="cabeca sobe">
+      <h2 id="h-como">Começar leva menos de cinco minutos.</h2>
+      <p class="lead">Não precisa baixar nada na loja de aplicativos nem criar senha.</p>
+    </div>
+    <ol class="passos">
+      <li class="passo sobe">
+        <span class="marco"><svg class="ico" aria-hidden="true"><use href="#i-celular"/></svg></span>
+        <h3>Abra no celular</h3>
+        <p>Toque em Começar grátis e o app abre no navegador. Para ter o ícone na tela, use a opção Adicionar à tela inicial.</p>
+      </li>
+      <li class="passo sobe">
+        <span class="marco"><svg class="ico" aria-hidden="true"><use href="#i-lista"/></svg></span>
+        <h3>Ajuste seus serviços</h3>
+        <p>Coloque o nome, o preço e o tempo de cada serviço que você faz. Os exemplos ajudam a começar.</p>
+      </li>
+      <li class="passo sobe">
+        <span class="marco"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <h3>Marque e confirme</h3>
+        <p>Marque o horário, toque em WhatsApp e envie a mensagem pronta para a cliente.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="faixa noite" data-section="manifesto" aria-labelledby="h-manifesto">
+  <div class="wrap manifesto">
+    <div class="arco sobe"><img src="img/joinha.webp" width="800" height="1200" alt="Cabeleireira sorrindo e fazendo sinal de positivo" loading="lazy"></div>
+    <div class="manifesto-texto sobe">
+      <h2 id="h-manifesto">Você cuida da beleza delas. A agenda cuida dos seus horários.</h2>
+      <ul class="fatos">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-conflito"/></svg><span><b>Aviso de horário duplicado.</b> Na hora de marcar, não depois que as duas chegam.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span><b>Confirmação pronta no WhatsApp.</b> Com o nome dela, o serviço, o dia e a hora.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-carteira"/></svg><span><b>Valor previsto do dia.</b> Somado sozinho no topo da agenda.</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-escudo"/></svg><span><b>Os dados ficam com você.</b> Guardados no seu aparelho, com backup em Ajustes.</span></li>
+      </ul>
+      <div class="acoes"><a class="btn btn-prim" href="app/" target="_blank" rel="noopener" data-cta="open_app" data-loc="manifesto">Começar grátis <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="faixa" data-section="comparativo" aria-labelledby="h-compara">
+  <div class="wrap">
+    <div class="cabeca sobe">
+      <h2 id="h-compara">Caderninho ou Agenda Beleza?</h2>
+      <p class="lead">As mesmas tarefas de todo dia, feitas dos dois jeitos.</p>
+    </div>
+    <div class="compara sobe" role="table" aria-label="Comparação entre caderninho e Agenda Beleza">
+      <div class="linha-c" role="row"><span role="columnheader">Tarefa</span><span role="columnheader">No caderninho</span><span role="columnheader">Na Agenda Beleza</span></div>
+      <div class="linha-c" role="row"><span class="item" role="cell">Ver quem vem hoje</span><span class="velho" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Folhear as páginas</span><span class="novo" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Abre direto em Hoje</span></div>
+      <div class="linha-c" role="row"><span class="item" role="cell">Horário que bate</span><span class="velho" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Só percebe quando as duas chegam</span><span class="novo" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Aviso na hora de marcar</span></div>
+      <div class="linha-c" role="row"><span class="item" role="cell">Confirmar a cliente</span><span class="velho" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Digitar a mensagem toda vez</span><span class="novo" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Mensagem pronta no WhatsApp</span></div>
+      <div class="linha-c" role="row"><span class="item" role="cell">Valor do dia</span><span class="velho" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Fazer a conta no fim do dia</span><span class="novo" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Somado no topo da agenda</span></div>
+      <div class="linha-c" role="row"><span class="item" role="cell">Histórico da cliente</span><span class="velho" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Procurar nas páginas antigas</span><span class="novo" role="cell"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Na ficha dela, com observações</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREÇO -->
+<section class="faixa nude" id="preco" data-section="preco" aria-labelledby="h-preco">
+  <div class="wrap">
+    <div class="cabeca sobe">
+      <h2 id="h-preco">Quanto custa? Nada.</h2>
+      <p class="lead">A Agenda Beleza é gratuita e de código aberto. Se quiser uma versão com a cara do seu negócio, a AF monta para você.</p>
+    </div>
+    <div class="planos">
+      <div class="plano sobe">
+        <span class="nome">Agenda Beleza</span>
+        <span class="valor">R$ 0<small>para sempre</small></span>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Agenda do dia, da semana e do mês</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Clientes e serviços sem limite</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Aviso de horário duplicado</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Confirmação pelo WhatsApp</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Backup dos seus dados</li>
+        </ul>
+        <a class="btn btn-prim" href="app/" target="_blank" rel="noopener" data-cta="open_app" data-loc="preco">Começar grátis</a>
+      </div>
+      <div class="plano escuro sobe">
+        <span class="nome">Com a sua marca</span>
+        <span class="valor">Sob medida<small>fale com a gente</small></span>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>O nome, o logo e as cores do seu studio</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Endereço próprio, como seustudio.com.br</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Serviços e preços já configurados</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Ajustes pensados para o seu jeito de atender</li>
+        </ul>
+        <a class="btn btn-prim" href="https://wa.me/5527996015367?text=Oi!%20Quero%20a%20Agenda%20Beleza%20com%20a%20minha%20marca." target="_blank" rel="noopener" data-cta="whatsapp_marca" data-loc="preco"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Quero com a minha marca</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DÚVIDAS -->
+<section class="faixa" id="duvidas" data-section="duvidas" aria-labelledby="h-duvidas">
+  <div class="wrap duvidas">
+    <div class="cabeca sobe" style="margin-bottom:0">
+      <h2 id="h-duvidas">Dúvidas que sempre aparecem.</h2>
+      <p class="lead">Não achou a sua? Chama no WhatsApp que a gente responde.</p>
+      <div><a class="btn btn-sec" href="https://wa.me/5527996015367?text=Oi!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Agenda%20Beleza." target="_blank" rel="noopener" data-cta="whatsapp" data-loc="duvidas"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Perguntar no WhatsApp</a></div>
+    </div>
+    <div class="faq">
+      <details><summary>Preciso instalar alguma coisa?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary><div class="resp"><p>Não. O app abre no navegador do celular ou do computador. Se quiser o ícone na tela, use a opção Adicionar à tela inicial do navegador.</p></div></details>
+      <details><summary>É grátis mesmo?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary><div class="resp"><p>Sim. A Agenda Beleza é de código aberto e não tem mensalidade. Você só paga se quiser uma versão personalizada com a sua marca.</p></div></details>
+      <details><summary>Onde ficam os dados das minhas clientes?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary><div class="resp"><p>No seu aparelho, dentro do navegador que você usa. Eles não vão para nenhum servidor.</p><p>Por isso, faça o backup em Ajustes de vez em quando. Se você limpar os dados do navegador ou trocar de celular, é o backup que traz tudo de volta.</p></div></details>
+      <details><summary>Serve para salão com várias profissionais?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary><div class="resp"><p>Hoje cada aparelho tem a sua própria agenda. Para uma equipe que precisa enxergar a mesma agenda, fale com a gente sobre a versão personalizada.</p></div></details>
+      <details><summary>A cliente consegue marcar sozinha?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary><div class="resp"><p>Ainda não. Você marca o horário e envia a confirmação pelo WhatsApp com um toque.</p></div></details>
+      <details><summary>Posso usar no celular e no computador?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary><div class="resp"><p>Pode, mas cada aparelho guarda a própria agenda. Para levar os dados de um para o outro, use Exportar e Importar em Ajustes.</p></div></details>
+      <details id="privacidade"><summary>O site usa cookies?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary><div class="resp"><p>Só se você aceitar. Eles mostram quais partes do site são mais usadas e ajudam a melhorar os anúncios. Você pode mudar a sua escolha a qualquer momento no rodapé.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CHAMADA FINAL -->
+<section class="faixa nude" data-section="final" aria-labelledby="h-final">
+  <div class="wrap final">
+    <div class="leque" aria-hidden="true">
+      <div class="phone p1"><img src="img/tela-semana.webp" width="780" height="1688" alt="" loading="lazy"></div>
+      <div class="phone p2"><img src="img/tela-hoje.webp" width="780" height="1688" alt="" loading="lazy"></div>
+      <div class="phone p3"><img src="img/tela-mes.webp" width="780" height="1688" alt="" loading="lazy"></div>
+    </div>
+    <div class="final-texto sobe">
+      <h2 id="h-final">Sua próxima cliente pode sair daqui já confirmada.</h2>
+      <p class="lead">Abra o app, marque o primeiro horário e mande a confirmação. Leva menos tempo que procurar o caderninho.</p>
+      <div class="acoes">
+        <a class="btn btn-prim" href="app/" target="_blank" rel="noopener" data-cta="open_app" data-loc="final">Começar grátis <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        <a class="btn btn-sec" href="https://wa.me/5527996015367?text=Oi!%20Vim%20pelo%20site%20da%20Agenda%20Beleza." target="_blank" rel="noopener" data-cta="whatsapp" data-loc="final"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Falar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div style="display:grid;gap:14px">
+      <span class="marca"><svg aria-hidden="true"><use href="#i-marca-noite"/></svg>Agenda Beleza</span>
+      <p>Um projeto da AF Tecnologia e Marketing, Vitória, ES.</p>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li>WhatsApp: <a href="https://wa.me/5527996015367" target="_blank" rel="noopener" data-cta="whatsapp" data-loc="rodape" class="copiavel">+55 27 99601-5367</a></li>
+        <li>E-mail: <span class="copiavel">alexfiorotti@gmail.com</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Projeto</h4>
+      <ul>
+        <li><a href="https://github.com/alexfiorotti-af/agenda-beleza-skill" target="_blank" rel="noopener" data-cta="github" data-loc="rodape">Código aberto no GitHub</a></li>
+        <li><a href="#privacidade">Privacidade e cookies</a></li>
+        <li><button class="linkbtn" type="button" id="abrir-cookies">Mudar preferência de cookies</button></li>
+      </ul>
+    </div>
+    <p class="baixo">Agenda Beleza é gratuita e de código aberto, sob licença MIT.</p>
+  </div>
+</footer>
+
+<div class="cookies" id="cookies" role="dialog" aria-labelledby="cookies-t" hidden>
+  <p id="cookies-t"><b>Podemos usar cookies?</b> Eles mostram o que funciona no site e ajudam a melhorar os anúncios. Nada é usado sem o seu sim.</p>
+  <div class="acoes">
+    <button class="btn btn-prim" type="button" data-consent="granted">Aceitar</button>
+    <button class="btn btn-sec" type="button" data-consent="denied">Agora não</button>
+  </div>
+</div>
+
+<script>
+/* ===== Rastreamento: dataLayer + CAPI (ver tracking/tracking-plan.json) ===== */
+var AB = (function(){
+  var cfg = window.AB_CONFIG || {};
+  var uuid = function(){ try { return crypto.randomUUID(); } catch(e){ return Date.now() + '-' + Math.random().toString(36).slice(2); } };
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+  };
+  var consent = store.get('ab_consent');
+  var anon = store.get('ab_anon'); if (!anon) { anon = uuid(); store.set('ab_anon', anon); }
+  var cookie = function(n){ var m = document.cookie.match('(?:^|; )' + n + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : undefined; };
+  var fbclid = new URLSearchParams(location.search).get('fbclid');
+  var fbcUrl = fbclid ? 'fb.1.' + Date.now() + '.' + fbclid : undefined;
+  // Limpa os parâmetros de um evento para o próximo, evitando valor velho no GTM
+  var BASE = { event_id: undefined, cta_id: undefined, cta_location: undefined, cta_text: undefined, section_id: undefined, scroll_percent: undefined, mockup_screen: undefined, faq_question: undefined };
+  // Eventos do site que também viram evento padrão do Meta (navegador via GTM + servidor via CAPI)
+  var META = { open_app: 'StartTrial', whatsapp_click: 'Lead', view_features: 'ViewContent' };
+
+  function capi(name, id, custom){
+    if (consent !== 'granted' || !cfg.capiUrl || location.protocol === 'file:') return;
+    var body = { event_name: name, event_id: id, event_source_url: location.href,
+      fbp: cookie('_fbp'), fbc: cookie('_fbc') || fbcUrl, external_id: anon, custom_data: custom || {} };
+    try { fetch(cfg.capiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), keepalive: true }).catch(function(){}); } catch(e){}
+  }
+  function track(event, params){
+    params = params || {};
+    var id = uuid();
+    window.dataLayer.push(Object.assign({}, BASE, { event: event, event_id: id }, params));
+    if (META[event]) capi(META[event], id, { content_name: params.cta_location || params.section_id || event });
+    return id;
+  }
+  function pushConsent(){
+    var id = uuid();
+    window.dataLayer.push(Object.assign({}, BASE, { event: 'consent_update', event_id: id, consent_ads: consent === 'granted' ? 'granted' : 'denied' }));
+    if (consent === 'granted') capi('PageView', id, {});
+  }
+  function setConsent(v){
+    consent = v; store.set('ab_consent', v);
+    gtag('consent', 'update', { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v });
+    pushConsent();
+  }
+  return { track: track, setConsent: setConsent, pushConsent: pushConsent, hasChoice: function(){ return consent === 'granted' || consent === 'denied'; } };
+})();
+
+(function(){
+  document.documentElement.classList.add('js');
+
+  /* Consentimento */
+  var banner = document.getElementById('cookies');
+  AB.pushConsent();
+  if (!AB.hasChoice()) banner.hidden = false;
+  banner.addEventListener('click', function(e){
+    var b = e.target.closest('[data-consent]'); if (!b) return;
+    AB.setConsent(b.dataset.consent); banner.hidden = true;
+  });
+  document.getElementById('abrir-cookies').addEventListener('click', function(){ banner.hidden = false; banner.querySelector('button').focus(); });
+
+  /* Cliques em chamadas */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('[data-cta]'); if (!a) return;
+    var p = { cta_id: a.dataset.cta, cta_location: a.dataset.loc || '', cta_text: a.textContent.replace(/\s+/g,' ').trim().slice(0,60) };
+    if (a.dataset.cta === 'open_app') AB.track('open_app', p);
+    else if (a.dataset.cta === 'whatsapp' || a.dataset.cta === 'whatsapp_marca') AB.track('whatsapp_click', p);
+    else AB.track('cta_click', p);
+  });
+
+  /* Seções vistas + ViewContent nas telas */
+  var vistas = {};
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var id = en.target.dataset.section; if (vistas[id]) return; vistas[id] = 1;
+        AB.track('section_view', { section_id: id });
+        if (id === 'telas') AB.track('view_features', { section_id: id });
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('[data-section]').forEach(function(s){ io.observe(s); });
+
+    var revela = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('vista'); revela.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.sobe').forEach(function(el, i){ el.style.transitionDelay = (i % 4) * 80 + 'ms'; revela.observe(el); });
+  } else {
+    document.querySelectorAll('.sobe').forEach(function(el){ el.classList.add('vista'); });
+  }
+
+  /* Profundidade de rolagem */
+  var marcos = [25, 50, 75, 90], feitos = {};
+  var topo = document.getElementById('topo');
+  window.addEventListener('scroll', function(){
+    topo.classList.toggle('rolou', window.scrollY > 8);
+    var h = document.documentElement.scrollHeight - innerHeight; if (h <= 0) return;
+    var pct = Math.round(scrollY / h * 100);
+    marcos.forEach(function(m){ if (pct >= m && !feitos[m]) { feitos[m] = 1; AB.track('scroll_depth', { scroll_percent: m }); } });
+  }, { passive: true });
+
+  /* Dúvidas abertas */
+  document.querySelectorAll('.faq details').forEach(function(d){
+    d.addEventListener('toggle', function(){ if (d.open) AB.track('faq_open', { faq_question: d.querySelector('summary').textContent.trim() }); });
+  });
+
+  /* Mockup interativo das telas */
+  var opcoes = Array.prototype.slice.call(document.querySelectorAll('.opcao'));
+  var img = document.querySelector('#tela-img img');
+  var legenda = document.querySelector('.legenda-celular');
+  function mostra(op, rastrear){
+    opcoes.forEach(function(o){ o.setAttribute('aria-selected', o === op ? 'true' : 'false'); o.tabIndex = o === op ? 0 : -1; });
+    var k = op.dataset.tela;
+    img.src = 'img/tela-' + k + '.webp';
+    img.alt = 'Tela ' + op.querySelector('.t').textContent.trim() + ' da Agenda Beleza';
+    legenda.innerHTML = '<h3>' + op.querySelector('.t').textContent.trim() + '</h3>' + op.querySelector('.d').innerHTML;
+    if (rastrear) AB.track('mockup_interaction', { mockup_screen: k });
+  }
+  opcoes.forEach(function(o, i){
+    o.addEventListener('click', function(){ mostra(o, true); });
+    o.addEventListener('keydown', function(e){
+      var n = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+      if (!n) return; e.preventDefault();
+      var alvo = opcoes[(i + n + opcoes.length) % opcoes.length]; alvo.focus(); mostra(alvo, true);
+    });
+  });
+  // pré-carrega as telas
+  ['semana','mes','novo','confirmar','clientes'].forEach(function(k){ var i = new Image(); i.src = 'img/tela-' + k + '.webp'; });
+  mostra(opcoes[0], false);
+})();
+</script>
+</body>
+</html>
